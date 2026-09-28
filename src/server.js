@@ -1,12 +1,13 @@
+import 'dotenv/config';
 import {ensureSchema, flushAll} from './clickhouseWriter.js';
 import {startUdpServer} from './udpServer.js';
 
-process.env.LADDER_SERVICE_NAME = process.env.LADDER_SERVICE_NAME || 'log-ingest';
 
-const port = Number(process.env.LOG_UDP_PORT || 30999);
+const port = Number(process.env.LOG_UDP_PORT);
+const host = process.env.LOG_UDP_HOST;
 
 await ensureSchema();
-startUdpServer(port);
+startUdpServer(host, port);
 
 process.on('SIGINT', async () => {
     await flushAll();

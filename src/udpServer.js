@@ -37,10 +37,10 @@ export function handleUdpPayload(buf) {
 }
 
 /**
- * @param {number} port
  * @param {string} [host]
+ * @param {number} [port]
  */
-export function startUdpServer(port, host = '0.0.0.0') {
+export function startUdpServer(host = '0.0.0.0', port = 30999) {
     const socket = dgram.createSocket('udp4');
 
     socket.on('message', (msg) => {
