@@ -1,0 +1,16 @@
+{
+  "name": "ladder-log-ingest",
+  "version": "0.1.0",
+  "description": "Приём логов по UDP и запись в ClickHouse",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "@clickhouse/client": "^1.10.1",
+    "moment": "^2.30.1"
+  }
+}
